@@ -1,39 +1,30 @@
 # Waybar Calendar Widget 📅
 
-A modern, feature-rich calendar widget for Waybar, designed with a sleek "Next.js/Vercel" aesthetic. This widget provides seamless integration with Hyprland and supports both **Gregorian (AD)** and **Bikram Sambat (BS)** calendar systems.
+I built this calendar widget for Waybar because I wanted something that looked good and actually worked well with Hyprland. It supports both **Gregorian (AD)** and **Bikram Sambat (BS)** calendar systems, which was a big requirement for me.
 
 ![Calendar Preview](images/clipboard_image_1f84f76c2a02fb.png)
 
-## ✨ Features
+## ✨ What it does
 
-- **Dual Calendar Support**: Instantly toggle between AD (Gregorian) and BS (Bikram Sambat) calendars.
-- **Event Management**: Add, view, and delete personal events directly from the widget.
-- **Smart Positioning**: 
-  - Automatically detects the monitor and cursor position.
-  - Centers the popup relative to the Waybar clock.
-  - Features a dynamic arrow indicator pointing to the source.
-- **Dynamic Theming**: 
-  - Automatically pulls colors from **Hyprland** active borders.
-  - Supports **Pywal** color schemes.
-  - Fallback to a beautiful **Catppuccin Mocha** theme.
-- **Modern UI/UX**:
-  - Transparent, blurred background (compositor dependent).
-  - Smooth hover effects and transitions.
-  - "Click-outside-to-close" functionality for a native popup feel.
-- **Nepali Holidays**: Built-in support for major Nepali holidays and Tithis.
+- **AD & BS Support**: You can switch between Gregorian and Bikram Sambat calendars easily.
+- **Events**: You can add your own events directly from the widget.
+- **Smart Positioning**: It pops up right under your clock (or wherever you clicked), and has a little arrow pointing to it. It figures out which monitor you are on automatically.
+- **Theming**: It tries to match your **Hyprland** active border colors or **Pywal** theme. If it can't find those, it falls back to a nice **Catppuccin Mocha** scheme.
+- **UI/UX**: It has a transparent, blurred background and feels like a native popup. You can click outside of it to close it.
+- **Nepali Holidays**: It knows about major Nepali holidays and Tithis.
 
 ## 🖼️ Gallery
 
 | AD View | BS View |
 |---------|---------|
-| ![AD View](images/clipboard_image_1f84f76c2a6bac.png) | ![BS View](images/clipboard_image_1f84f76c2afb6b.png) |
+| ![AD View](images/clipboard_image_1f84f76c2afb6b.png) | ![BS View](images/clipboard_image_1f84f76c2a6bac.png) |
 
 *Event Management:*
 ![Events](images/clipboard_image_1f84f76c2ba220.png)
 
 ## 🛠️ Prerequisites
 
-Ensure you have the following installed on your system:
+You'll need these installed on your system:
 
 - **Python 3**
 - **GTK 3**
@@ -42,7 +33,7 @@ Ensure you have the following installed on your system:
 - **Waybar**
 
 ### Python Dependencies
-The widget uses standard Python libraries (`gi`, `datetime`, `json`, `subprocess`), so no `pip install` is usually required if you have the system GTK bindings installed.
+The widget uses standard Python libraries (`gi`, `datetime`, `json`, `subprocess`), so you usually don't need to `pip install` anything if you have the system GTK bindings installed.
 
 ## 📦 Installation
 
@@ -67,7 +58,7 @@ The widget uses standard Python libraries (`gi`, `datetime`, `json`, `subprocess
 
 ### Waybar Config (`config.jsonc`)
 
-Add the following to your Waybar module configuration to launch the calendar when clicking the clock:
+Add this to your Waybar module configuration to launch the calendar when clicking the clock:
 
 ```jsonc
 "clock": {
@@ -79,12 +70,12 @@ Add the following to your Waybar module configuration to launch the calendar whe
 
 ### Customizing Colors
 
-The widget automatically attempts to fetch colors in this order:
+The widget automatically looks for colors in this order:
 1. **Hyprland Active Border**: Matches your window borders.
 2. **Pywal**: Looks for `~/.cache/wal/colors.json`.
 3. **Default**: Uses the Catppuccin Mocha palette.
 
-To force specific colors, you can modify the `get_hyprland_colors()` function in `calendar_styles.py`.
+If you want to force specific colors, you can modify the `get_hyprland_colors()` function in `calendar_styles.py`.
 
 ## ⌨️ Usage
 
